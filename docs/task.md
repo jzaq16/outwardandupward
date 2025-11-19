@@ -1,0 +1,29 @@
+# Tasks
+
+- [ ] Analyze existing website content and structure <!-- id: 0 -->
+- [x] Create implementation plan <!-- id: 1 -->
+- [/] Initialize new project structure <!-- id: 2 -->
+    - [x] Setup Git and .gitignore <!-- id: 10 -->
+    - [x] Configure multilingual routing structure <!-- id: 11 -->
+- [x] Implement core design system and styles <!-- id: 3 -->
+- [x] Build main pages <!-- id: 4 -->
+    - [x] Home page <!-- id: 5 -->
+    - [x] About page <!-- id: 6 -->
+    - [x] Services/Offerings <!-- id: 7 -->
+    - [x] Contact <!-- id: 8 -->
+- [x] Verify and Polish <!-- id: 9 -->
+- [x] Explore Design Variations <!-- id: 12 -->
+    - [x] Implement Theme Switcher <!-- id: 13 -->
+    - [x] Create Ocean Theme <!-- id: 14 -->
+    - [x] Create Sunset Theme <!-- id: 15 -->
+    - [x] Extract and Implement Original Theme <!-- id: 17 -->
+    - [x] Refine Typography (Ocean Theme) <!-- id: 18 -->
+- [x] Finalize Design Selection <!-- id: 16 -->
+- [x] Integrate Images <!-- id: 19 -->
+    - [x] Add Hero Background Image <!-- id: 20 -->
+    - [x] Add Post Thumbnails <!-- id: 21 -->
+    - [x] Add About Page Image <!-- id: 22 -->
+- [ ] Phase 2: Content Migration & Organization <!-- id: 31 -->
+    - [x] Move Roadmap to Project Root <!-- id: 32 -->
+    - [ ] Ingest & Clean Up HTML Post Content <!-- id: 33 -->
+    - [ ] Implement Post Categories (Postponed) <!-- id: 34 -->
