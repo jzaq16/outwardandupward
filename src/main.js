@@ -3,6 +3,7 @@ import en from './locales/en.js';
 import vi from './locales/vi.js';
 import es from './locales/es.js';
 import { posts } from './data/posts.js';
+import aboutContent from './data/content/about.html?raw';
 
 const locales = { en, vi, es };
 const defaultLocale = 'en';
@@ -177,7 +178,7 @@ function renderFooter() {
 }
 
 function renderHomePage() {
-  const recentPosts = posts.slice(0, 3).map(post => {
+  const recentPosts = posts.filter(p => p).slice(0, 3).map(post => {
     const translation = post.translations[currentLocale] || post.translations[defaultLocale];
     if (!translation) return '';
     const postLink = `/${currentLocale === defaultLocale ? '' : currentLocale + '/'}posts/${post.id}`;
@@ -218,24 +219,15 @@ function renderHomePage() {
 
 function renderAboutPage() {
   const philosophyPostLink = `/${currentLocale === defaultLocale ? '' : currentLocale + '/'}posts/why-the-name`;
+  const content = aboutContent.replace('{philosophyPostLink}', philosophyPostLink);
+
   return `
     <div class="page-about container fade-in">
       <section class="hero-small">
         <h1>${t('nav.about')}</h1>
       </section>
       <div style="margin-top: var(--spacing-lg); max-width: 900px; margin-left: auto; margin-right: auto;">
-        <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; margin-bottom: 1.5rem;">
-            <img src="/images/about.jpg" alt="About Me" style="max-width: 300px; width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
-            <div style="flex: 1; min-width: 300px;">
-                <p>Hi, I'm Derek! I'm a tech worker in the California Bay Area, but far more importantly, I'm a Christian, a husband, and a parent. When I'm not with my family, I enjoy trying new tech, appreciating nature, and exploring new ideas.</p>
-                <p>My goal is simple: to build bridges of connection by sharing down-to-earth perspectives on Christian living and faith in real life. Naturally, a lot of this will relate to my experiences as a member of The Church of Jesus Christ of Latter-day Saints (sometimes called "Mormons"). In part, I hope I can help demystify my faith in an accessible and genuine way for anyone who has ever wondered about it.</p>
-            </div>
-        </div>
-        <p>It's important to note that the thoughts I share here are my own; I don't speak for my church. But my faith is central to who I am, and I'll frequently refer to the scriptures and other sources that guide and inspire me.</p>
-        <p>Thanks for stopping by. I hope you'll join the conversation!</p>
-        <div style="margin-top: 2rem; text-align: center;">
-            <a href="${philosophyPostLink}" class="btn" data-link>Site Philosophy</a>
-        </div>
+        ${content}
       </div>
     </div>
   `;

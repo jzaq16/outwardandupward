@@ -128,8 +128,46 @@ main {
   padding-top: var(--spacing-lg);
 }
 
+/* temporary testing */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  /* Base color for the button */
+  text-decoration: none;
+  /* Remove the default underline */
+  /* Other button styles */
+}
 
+/* Ensure the color applies to unvisited and visited link states */
+.btn:link,
+.btn:visited {
+  color: var(--color-white);
+  text-decoration: none;
+}
 
+/* Define styles for hover, active, and focus states */
+.btn:hover {
+  color: var(--color-white);
+  /* Keep the same color, or change if desired */
+  background-color: var(--color-primary-dark);
+  /* Example hover effect */
+  text-decoration: none;
+  /* Keep underline off or add if desired */
+}
+
+.btn:active,
+.btn:focus {
+  color: var(--color-white);
+  background-color: var(--color-primary-darker);
+  /* Example active/focus effect */
+  text-decoration: none;
+  outline: none;
+  /* Remove default focus outline if you provide a custom one */
+}
+
+/* temporary testing
 .btn {
   display: inline-block;
   padding: 0.8rem 1.5rem;
@@ -146,6 +184,9 @@ main {
   background-color: var(--color-secondary);
   transform: translateY(-2px);
 }
+  */
+
+
 
 /* Animations */
 @keyframes fadeIn {
@@ -366,7 +407,6 @@ main {
   text-align: center;
   padding: var(--spacing-md) 0;
   /* reduced vertical padding */
-  background-color: var(--color-accent);
   margin-bottom: var(--spacing-md);
   /* reduced bottom margin */
   border-radius: 8px;
@@ -564,4 +604,24 @@ main {
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin: 2rem 0;
+}
+
+/* About Page Styles */
+.about-image {
+  float: left;
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+  max-width: 300px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .about-image {
+    float: none;
+    display: block;
+    margin: 0 auto 2rem auto;
+    max-width: 100%;
+  }
 }
