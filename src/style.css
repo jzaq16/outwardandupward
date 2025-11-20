@@ -71,6 +71,13 @@ a:hover {
   color: var(--color-primary);
 }
 
+/* Layout Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
 /* Micro-interaction: Animated Underline for Nav Links */
 .nav-links a {
   position: relative;
@@ -106,6 +113,10 @@ main {
 .page-home {
   margin: 0;
   padding: 0;
+}
+
+.page-post {
+  padding-top: var(--spacing-lg);
 }
 
 
