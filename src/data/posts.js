@@ -7,10 +7,15 @@ import whyTheNameEn from './content/why-the-name.html?raw';
 import apostlesAndProphetsContent from './content/apostles-and-prophets.html?raw';
 
 
+
+import testMultilingualEn from './content/test-multilingual.html?raw';
+import testMultilingualVi from './content/test-multilingual.vi.html?raw';
 // -- IMPORTS --
 
 export const posts = [
     // -- POSTS --
+    ,
+
 
 
     {

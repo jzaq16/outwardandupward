@@ -128,12 +128,12 @@ main {
   padding-top: var(--spacing-lg);
 }
 
-/* temporary testing */
 .btn {
   display: inline-block;
   padding: 0.8rem 1.5rem;
   background-color: var(--color-primary);
   color: var(--color-white);
+  border-radius: 6px;
   /* Base color for the button */
   text-decoration: none;
   /* Remove the default underline */
@@ -151,7 +151,7 @@ main {
 .btn:hover {
   color: var(--color-white);
   /* Keep the same color, or change if desired */
-  background-color: var(--color-primary-dark);
+  background-color: var(--color-secondary);
   /* Example hover effect */
   text-decoration: none;
   /* Keep underline off or add if desired */
@@ -166,25 +166,6 @@ main {
   outline: none;
   /* Remove default focus outline if you provide a custom one */
 }
-
-/* temporary testing
-.btn {
-  display: inline-block;
-  padding: 0.8rem 1.5rem;
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  border-radius: 4px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  transition: background-color var(--transition-fast), transform var(--transition-fast);
-}
-
-.btn:hover {
-  background-color: var(--color-secondary);
-  transform: translateY(-2px);
-}
-  */
 
 
 
@@ -607,6 +588,10 @@ main {
 }
 
 /* About Page Styles */
+.page-about p {
+  margin-bottom: 2rem;
+}
+
 .about-image {
   float: left;
   margin-right: 2rem;
