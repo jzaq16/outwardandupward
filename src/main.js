@@ -317,9 +317,6 @@ function renderPostPage(postId) {
 
   return `
     <div class="page-post container fade-in">
-      <div class="reading-progress-container">
-        <div class="reading-progress-bar"></div>
-      </div>
       <article class="post-content">
         <header style="text-align: center; margin-bottom: 0.8rem;">
           <h1>${translation.title}</h1>
@@ -435,6 +432,7 @@ function renderPage() {
 
   const updateDOM = () => {
     app.innerHTML = `
+      ${route.startsWith('/posts/') && route !== '/posts' ? '<div class="reading-progress-container"><div class="reading-progress-bar"></div></div>' : ''}
       ${renderHeader()}
       <main>
         ${content}
