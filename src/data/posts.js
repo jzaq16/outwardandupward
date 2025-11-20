@@ -14,7 +14,6 @@ import testMultilingualVi from './content/test-multilingual.vi.html?raw';
 
 export const posts = [
     // -- POSTS --
-    ,
 
 
 

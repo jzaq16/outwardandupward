@@ -4,6 +4,7 @@ import vi from './locales/vi.js';
 import es from './locales/es.js';
 import { posts } from './data/posts.js';
 import aboutContent from './data/content/about.html?raw';
+import { trackPageView } from './utils/analytics.js';
 
 const locales = { en, vi, es };
 const defaultLocale = 'en';
@@ -504,6 +505,10 @@ function renderPage() {
         }
       });
     }
+
+    // Track page view in Google Analytics (after DOM is updated and listeners attached)
+    const pageTitle = document.title;
+    trackPageView(window.location.pathname, pageTitle);
   };
 
   // View Transitions API
