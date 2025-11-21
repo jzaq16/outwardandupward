@@ -144,15 +144,31 @@ async function loadComments(slug) {
     const response = await fetch(`/api/comments?slug=${slug}`);
     const comments = await response.json();
 
-    const commentsList = comments.map(c => `
+    const commentsList = comments.map(c => {
+      const initials = c.author
+        .split(' ')
+        .map(n => n[0])
+        .join('')
+        .toUpperCase()
+        .slice(0, 2);
+
+      // Deterministic color based on author name
+      const colors = ['#006d77', '#e07a5f', '#3d405b', '#81b29a', '#f2cc8f'];
+      const colorIndex = c.author.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0) % colors.length;
+      const bgColor = colors[colorIndex];
+
+      return `
       <div class="comment">
-        <div class="comment-header">
-          <strong>${c.author}</strong>
-          <span class="comment-date">${new Date(c.createdAt).toLocaleDateString()}</span>
+        <div class="comment-avatar" style="background-color: ${bgColor}">${initials}</div>
+        <div class="comment-content">
+          <div class="comment-header">
+            <strong>${c.author}</strong>
+            <span class="comment-date">${new Date(c.createdAt).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          </div>
+          <p>${c.content}</p>
         </div>
-        <p>${c.content}</p>
       </div>
-    `).join('');
+    `}).join('');
 
     container.innerHTML = `
       <section class="comments-section">
@@ -162,7 +178,14 @@ async function loadComments(slug) {
         </div>
         
         <form id="comment-form" class="comment-form">
-          <h3>Leave a Comment</h3>
+          <h3>Join the Conversation</h3>
+          
+          <!-- Honeypot field (hidden from users) -->
+          <div class="visually-hidden" aria-hidden="true">
+            <label for="website">Website</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
           <div class="form-group">
             <label for="author">Name</label>
             <input type="text" id="author" name="author" required placeholder="Your Name">
@@ -171,7 +194,7 @@ async function loadComments(slug) {
             <label for="content">Comment</label>
             <textarea id="content" name="content" required placeholder="Share your thoughts..."></textarea>
           </div>
-          <button type="submit" class="btn">Submit</button>
+          <button type="submit" class="btn">Post Comment</button>
         </form>
       </section>
     `;
@@ -188,7 +211,8 @@ async function loadComments(slug) {
       const formData = {
         postSlug: slug,
         author: form.author.value,
-        content: form.content.value
+        content: form.content.value,
+        website: form.website.value // Send honeypot to server for verification
       };
 
       try {

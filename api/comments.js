@@ -26,7 +26,13 @@ export default async function handler(req, res) {
     }
 
     if (req.method === 'POST') {
-        const { postSlug, author, content } = req.body;
+        const { postSlug, author, content, website } = req.body;
+
+        // Honeypot check
+        if (website) {
+            console.warn('Spam detected (honeypot filled)');
+            return res.status(200).json({ message: 'Comment received' }); // Fake success to fool bots
+        }
 
         if (!postSlug || !author || !content) {
             return res.status(400).json({ error: 'Missing required fields' });
