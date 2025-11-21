@@ -1,15 +1,12 @@
 import whoAreYouEn from './content/who-are-you-really.html?raw';
 import whoAreYouVi from './content/who-are-you-really.vi.html?raw';
 import whoAreYouEs from './content/who-are-you-really.es.html?raw';
-
 import whyTheNameEn from './content/why-the-name.html?raw';
-
 import apostlesAndProphetsContent from './content/apostles-and-prophets.html?raw';
 
 
 
-import testMultilingualEn from './content/test-multilingual.html?raw';
-import testMultilingualVi from './content/test-multilingual.vi.html?raw';
+
 // -- IMPORTS --
 
 export const posts = [
