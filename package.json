@@ -13,5 +13,11 @@
   },
   "devDependencies": {
     "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "@vercel/postgres": "^0.10.0",
+    "dotenv": "^17.2.3",
+    "drizzle-kit": "^0.31.7",
+    "drizzle-orm": "^0.44.7"
   }
 }
